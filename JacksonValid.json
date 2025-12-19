@@ -1,0 +1,8 @@
+{
+  "shape": [
+    "org.dontpanic.ysoserial.jackson.Circle",
+    {
+      "radius": 5.0
+    }
+  ]
+}

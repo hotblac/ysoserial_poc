@@ -6,12 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MainTest {
 
-    final static Path EXPLOIT_FLAG = Path.of(System.getProperty("user.dir") + "/CommonsCollections2_exploited.flag");
+    final static Path EXPLOIT_FLAG = Paths.get(System.getProperty("user.dir"), "CommonsCollections2_exploited.flag");
 
     @AfterEach
     void tearDown() throws Exception{
@@ -22,7 +23,7 @@ class MainTest {
     void exploitWithYsoserialCommonsCollections2GadgetChain() throws Exception {
 
         try {
-            Main.main(new String[]{"src/test/resources/CommonsCollections2.payload.bin"});
+            Main.main(new String[]{"src/test/resources/CommonsCollections2.touchfile.payload.bin"});
         } catch (FunctorException e) {
             // Expected
         }
