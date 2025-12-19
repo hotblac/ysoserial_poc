@@ -35,5 +35,5 @@ Demonstrate the exploit with:
 java -jar jackson/target/ysoserial-jackson-1.0-SNAPSHOT-all.jar JacksonExploit_gnome-calculator.json
 ```
 
-Verify that `TemplatesImpl_exploited.flag` is created or the Gnome calculator app is opened, demonstrating RCE.
+Ignore the stacktrace caused by JsonMappingException. Verify that `TemplatesImpl_exploited.flag` is created or the Gnome calculator app is opened, demonstrating RCE.
 

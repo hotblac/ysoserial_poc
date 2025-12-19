@@ -1,8 +1,15 @@
-{
-  "shape": [
+[
+  [
     "org.dontpanic.ysoserial.jackson.Circle",
     {
       "radius": 5.0
     }
+  ],
+  [
+    "org.dontpanic.ysoserial.jackson.Rectangle",
+    {
+      "width": 10.0,
+      "height": 20.0
+    }
   ]
-}
+]
