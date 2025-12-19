@@ -1,4 +1,4 @@
-package org.dontpanic.ysoserial.poc;
+package org.dontpanic.ysoserial.collections40;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,7 +8,7 @@ import java.io.ObjectInputStream;
 public class Main {
     public static void main(String[] args) throws Exception{
         if (args.length < 1) {
-            System.out.println("Usage: java -jar ysoserial-poc.jar <file>");
+            System.out.println("Usage: java -jar ysoserial-collections40-1.0-SNAPSHOT-all.jar <file>");
             return;
         }
 
