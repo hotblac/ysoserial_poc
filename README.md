@@ -29,11 +29,21 @@ Ignore the stacktrace caused by NullPointerException. Verify that `CommonsCollec
 ## Jackson / Xalan
 Generate the payload with the payload-generator project. The Maven build process creates payload files in `target/payloads`. Add these to Jackson JSON input files. I've included a valid JSON file (JacksonValid.json) and an invalid JSON file (JacksonInvalid.json), and exploit payloads (JacksonExploit_gnome-calculator.json and JacksonExploit_touchfile.json).
 
+These use a packaged xalan library and work for me in JDK 8, 11 and 17. They exploit a vulnerable xalan library so seem not to be JDK dependent.
+
 Demonstrate the exploit with:
 
 ```
-java -jar jackson/target/ysoserial-jackson-1.0-SNAPSHOT-all.jar JacksonExploit_gnome-calculator.json
+java -jar jackson/target/ysoserial-jackson-1.0-SNAPSHOT-all.jar JacksonExploit_packaged_xalan_touchfile.json
+```
+or
+```
+java -jar jackson/target/ysoserial-jackson-1.0-SNAPSHOT-all.jar JacksonExploit_packaged_xalan_gnome-calculator.json
 ```
 
 Ignore the stacktrace caused by JsonMappingException. Verify that `TemplatesImpl_exploited.flag` is created or the Gnome calculator app is opened, demonstrating RCE.
 
+Alternatively, the JacksonExploit_bundled_xalan_touchfile.json exploits the xalan library bundled with older (unpatched) JDKs. The following works for me only in JDK 8u40.
+```
+java -jar jackson/target/ysoserial-jackson-1.0-SNAPSHOT-all.jar JacksonExploit_bundled_xalan_touchfile.json
+```
