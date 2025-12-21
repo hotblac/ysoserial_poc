@@ -15,10 +15,10 @@
   </properties>
 
   <modules>
+    <module>simple</module>
     <module>collections40</module>
     <module>jackson</module>
     <module>payload-generator</module>
-      <module>simple</module>
   </modules>
 
 </project>

@@ -5,7 +5,7 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         if (args.length < 1) {
-            System.out.println("Usage: java -jar ysoserial-simple-1.0-SNAPSHOT-all.jar <file>");
+            System.out.println("Usage: java -jar ysoserial-simple-1.0-SNAPSHOT.jar <file>");
             System.out.println("Creating sample payload...");
             serializeObject();
             return;

