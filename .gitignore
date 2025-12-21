@@ -1,4 +1,4 @@
 .idea/
 .run/
 target/
-*exploited.flag
+*.flag
